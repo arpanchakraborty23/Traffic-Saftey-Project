@@ -1,0 +1,21 @@
+flask
+roboflow
+fastapi
+ultralytics
+torch==2.6.0 
+torchvision
+timm
+albumentations
+pycocotools
+PyYAML
+scipy
+onnxslim
+onnxruntime-gpu
+gradio
+opencv-python
+psutil
+py-cpuinfo
+huggingface-hub
+safetensors
+numpy
+-e .
