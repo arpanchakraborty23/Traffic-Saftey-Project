@@ -24,3 +24,14 @@ class DataIngestionConfig:
         )
 
         self.dataset_url = constants.DATASET_URL
+
+class DataValidationConfig:
+    def __init__(self,traning_config:DataConfiguration):
+        self.data_validation_artifacts = os.path.join(
+            traning_config.artifacts_path, constants.DATA_VALIDATION_DIR_NAME
+        )
+
+        self.status_file_path = os.path.join(
+            self.data_validation_artifacts,constants.DATA_VALIDATION_STATUS_FILE
+        )
+        self.all_required_files = constants.DATA_VALIDATION_ALL_REQUIRED_FILES
