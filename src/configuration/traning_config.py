@@ -35,3 +35,21 @@ class DataValidationConfig:
             self.data_validation_artifacts,constants.DATA_VALIDATION_STATUS_FILE
         )
         self.all_required_files = constants.DATA_VALIDATION_ALL_REQUIRED_FILES
+
+class ModelTrainerConfig:
+    def __init__(self,traning_config:DataConfiguration):
+        self.model_train_dir = os.path.join(
+            traning_config.artifacts_path,constants.MODEL_TRAIN_DIR
+        )
+        self.pre_trained_model_path = os.path.join(
+            self.model_train_dir,constants.PRE_TRAIN_MODEL_FILE
+        )
+        self.outputs_path = os.path.join(
+            self.model_train_dir,constants.TRAINED_MODEL_OUTPUT_PATH
+        )
+        self.model_path = os.path.join(
+            self.model_train_dir,constants.TRAINED_MODEL_PATH
+        )
+        self.num_epochs = constants.TRAIN_EPOCHS
+        self.batch_size = constants.BATCH_SIZE
+        

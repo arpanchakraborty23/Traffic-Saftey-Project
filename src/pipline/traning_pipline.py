@@ -1,6 +1,7 @@
-from src.configuration.traning_config import DataConfiguration,DataIngestionConfig,DataValidationConfig
+from src.configuration.traning_config import DataConfiguration,DataIngestionConfig,DataValidationConfig,ModelTrainerConfig
 from src.components.data_ingestion import DataIngestion
 from src.components.data_validation import DataValidation
+from src.components.model_trainer import ModelTrainer
 from src.logger import logging as lg
 
 class TraningPipline:
@@ -26,10 +27,23 @@ class TraningPipline:
         self.data_validation_artifacts=data_validation.initiate_data_val()
         print('Data validation completed')
         lg.info('******************************** Data Validation Completed *******************************')
+    
+    def start_model_training(self):
+            lg.info('******************************** Model Training ***********************************')
+            model_training_config=ModelTrainerConfig(traning_config=self.traning_config)
+            model_training= ModelTrainer(
+                ingestion_artifact= self.data_ingestion_artifacts,
+                validation_artifact=self.data_validation_artifacts,
+                model_config=model_training_config
+            )
+            model_training.initate_model_trainer()
+            lg.info('******************************** Model Training Completed *******************************')
+       
 
     def run_pipline(self):
         self.start_data_ingestion()
         self.start_data_validation()
+        self.start_model_training()
 
 if __name__=="__main__":
     obj=TraningPipline()
