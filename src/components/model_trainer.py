@@ -11,6 +11,9 @@ import traceback
 from PIL import Image
 import mlflow
 import mlflow.pytorch
+import dagshub
+
+dagshub.init(repo_owner='arpanchakraborty23', repo_name='Traffic-Saftey-Project', mlflow=True)
 
 class YoloDataset(Dataset):
     def __init__(self, root_dir, transform=None):
@@ -182,7 +185,7 @@ class ModelTrainer:
 
             # Start model training
             lg.info('Starting model training...')
-            
+
             # model.train(
             #     data=data_file_path['data.yaml'],
             #     epochs=self.model_train_config.num_epochs,
