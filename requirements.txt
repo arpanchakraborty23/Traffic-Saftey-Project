@@ -18,4 +18,5 @@ py-cpuinfo
 huggingface-hub
 safetensors
 numpy
+mlflow
 -e .

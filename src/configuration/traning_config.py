@@ -42,7 +42,7 @@ class ModelTrainerConfig:
             traning_config.artifacts_path,constants.MODEL_TRAIN_DIR
         )
         self.pre_trained_model_path = os.path.join(
-            self.model_train_dir,constants.PRE_TRAIN_MODEL_FILE
+            self.model_train_dir,constants.PRE_TRAIN_MODEL_DIR,constants.PRE_TRAIN_MODEL_FILE
         )
         self.outputs_path = os.path.join(
             self.model_train_dir,constants.TRAINED_MODEL_OUTPUT_PATH

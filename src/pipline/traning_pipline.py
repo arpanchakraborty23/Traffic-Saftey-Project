@@ -14,8 +14,9 @@ class TraningPipline:
         data_ingestion= DataIngestion(config=data_ingestion_config)
         self.data_ingestion_artifacts=data_ingestion.initiate_data_ingestion()
         print('data ingestion completed')
+        
         lg.info('******************************** Data Ingestion Completed *******************************')
-       
+        return self.data_ingestion_artifacts
     
     def start_data_validation(self):
         lg.info('******************************** Data Validation ***********************************')
