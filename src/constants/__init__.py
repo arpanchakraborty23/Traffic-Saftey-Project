@@ -1,5 +1,5 @@
 ARTIFACTS_FOLDER:str= 'Artifacts'
-DATASET_URL:str ='https://universe.roboflow.com/ds/zEPfaXDzeb?key=LDZMbt7Cmb'
+DATASET_URL:str ='https://universe.roboflow.com/ds/XnxnpBnHyC?key=ihlSN6lpze'
 
 "Define Data Ingation constants"
 DATA_INGESTION_DIR:str = 'data_ingestion'

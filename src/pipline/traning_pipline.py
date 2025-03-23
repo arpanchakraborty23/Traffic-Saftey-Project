@@ -12,39 +12,41 @@ class TraningPipline:
         lg.info('******************************** Data Ingestion ***********************************')
         data_ingestion_config = DataIngestionConfig(traning_config=self.traning_config)
         data_ingestion= DataIngestion(config=data_ingestion_config)
-        self.data_ingestion_artifacts=data_ingestion.initiate_data_ingestion()
+        artifacts = data_ingestion_artifacts=data_ingestion.initiate_data_ingestion()
         print('data ingestion completed')
+
         
         lg.info('******************************** Data Ingestion Completed *******************************')
-        return self.data_ingestion_artifacts
+        return artifacts
     
-    def start_data_validation(self):
+    def start_data_validation(self,data_ingestion_artifacts):
         lg.info('******************************** Data Validation ***********************************')
         data_validation_config=DataValidationConfig(traning_config=self.traning_config)
         data_validation=DataValidation(
             validation_config=data_validation_config,
-            ingestion_artifacts=self.data_ingestion_artifacts
+            ingestion_artifacts= data_ingestion_artifacts
         )
-        self.data_validation_artifacts=data_validation.initiate_data_val()
+        artifacts = data_validation.initiate_data_val()
         print('Data validation completed')
         lg.info('******************************** Data Validation Completed *******************************')
+        return artifacts
+
     
-    def start_model_training(self):
+    def start_model_training(self,data_ingestion_artifacts):
             lg.info('******************************** Model Training ***********************************')
             model_training_config=ModelTrainerConfig(traning_config=self.traning_config)
             model_training= ModelTrainer(
-                ingestion_artifact= self.data_ingestion_artifacts,
-                validation_artifact=self.data_validation_artifacts,
-                model_config=model_training_config
+                ingestion_artifacts=data_ingestion_artifacts,
+                model_train_config=model_training_config
             )
-            model_training.initate_model_trainer()
+            model_training.initiate_model_trainer()
             lg.info('******************************** Model Training Completed *******************************')
        
 
     def run_pipline(self):
-        self.start_data_ingestion()
-        self.start_data_validation()
-        self.start_model_training()
+        artifacts=self.start_data_ingestion()
+        val_artifacts= self.start_data_validation(data_ingestion_artifacts=artifacts)
+        self.start_model_training(data_ingestion_artifacts=artifacts)
 
 if __name__=="__main__":
     obj=TraningPipline()

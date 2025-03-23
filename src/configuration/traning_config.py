@@ -7,7 +7,7 @@ class DataConfiguration:
     def __init__(self):
         timestamp = datetime.now().strftime("%d_%m_%Y_%H_%M_%S")
         artifacts = constants.ARTIFACTS_FOLDER
-        self.artifacts_path = os.path.join(artifacts,timestamp)
+        self.artifacts_path = os.path.join(artifacts)
 
 class DataIngestionConfig:
     def __init__(self,traning_config:DataConfiguration):
@@ -47,7 +47,7 @@ class ModelTrainerConfig:
         self.outputs_path = os.path.join(
             self.model_train_dir,constants.TRAINED_MODEL_OUTPUT_PATH
         )
-        self.model_path = os.path.join(
+        self.trained_model_path = os.path.join(
             self.model_train_dir,constants.TRAINED_MODEL_PATH
         )
         self.num_epochs = constants.TRAIN_EPOCHS

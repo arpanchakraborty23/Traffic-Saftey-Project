@@ -13,4 +13,5 @@ class DataValidationArtifact:
 @dataclass
 class ModelTrainerArtifacts:
     model_path:Path
+    model : object
     
