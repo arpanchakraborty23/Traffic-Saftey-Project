@@ -18,5 +18,5 @@ PRE_TRAIN_MODEL_DIR:str = 'pre_train_model'
 PRE_TRAIN_MODEL_FILE:str = 'yolo12n.pt'
 TRAINED_MODEL_OUTPUT_PATH:str ='results'
 TRAINED_MODEL_PATH:str = 'Trained_model.pt'
-TRAIN_EPOCHS:int = 10
+TRAIN_EPOCHS:int = 100
 BATCH_SIZE :int = 16
